@@ -36,7 +36,7 @@ public class UnoOnline
      * 2. The password must contain at least one "special character"
      * 
      */
-    private void run()
+    public void run()
     {
         int userCount=0;//keep track of number of users for array
         Scanner sc = new Scanner(System.in);
@@ -44,6 +44,11 @@ public class UnoOnline
         String userName = sc.nextLine();
         boolean validPassword=false;
         String password="";
+        
+           boolean validation= PasswordValidator.Validation(userName, password);
+           
+            
+          /*
         while(!validPassword)
         {
             System.out.println("Passwords must have at least 8 characters");
@@ -65,14 +70,16 @@ public class UnoOnline
             {
                 validPassword=true;
             }
-        }//loop only ends when password is valid so now we create the User
+        }//loop only ends when password is valid so now we create the User*/
         
+        if(validation == true){
         User newUser = new User(userName, password);
         users[userCount] = newUser;//add the new user to the user list
         userCount++;
         System.out.println("New User Added");
         System.out.println("UserName: " + userName);
         System.out.println("Password: just kidding can't show password");
+        }
     }//end run method
    
     
